@@ -1,22 +1,124 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+.card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    border-radius: 15px;
+}
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card .card-body {
+        background: #f8f9fa;
+    }
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.card img {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    object-fit: cover;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+    .card-header.bg-primary {
+        background: linear-gradient(90deg, #4f8cff 60%, #6ee7b7 100%) !important;
+        color: #fff !important;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+/* Footer del chat */
+.card-footer {
+    background: #f1f5f9;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.chat-bubble-user {
+    background-color: #f0f0f0;
+    color: #000;
+    border-radius: 15px 15px 0 15px;
+    padding: 10px;
+}
+
+.chat-bubble-bot {
+    background-color: #28a745;
+    color: white;
+    border-radius: 15px 15px 15px 0;
+    padding: 10px;
+}
+
+/* Fondo general para la página del chatbot */
+body.bg-chatbot {
+    background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+    min-height: 100vh;
+}
+
+
+.card.shadow-sm {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 20px;
+    border: 1px solid #e0e7ff;
+    background: rgba(255,255,255,0.95);
+}
+
+/* Input y botón */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #4f8cff 60%, #6ee7b7 100%);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #2563eb 60%, #059669 100%);
+    }

@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Taller_Conexion_Gemini_Ai_Gpt.Models;
+using Taller_Conexion_Gemini_Ai_Gpt.Repositories;
 
 namespace Taller_Conexion_Gemini_Ai_Gpt.Controllers
 {

@@ -1,7 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using Taller_Conexion_Gemini_Ai_Gpt.Interfaces;
+using Taller_Conexion_Gemini_Ai_Gpt.Repositories;
+using Taller_Conexion_Gemini_Ai_Gpt.DbContext;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Inyección de HttpClient para los repositorios
+builder.Services.AddHttpClient<IGeminiRepository, GeminiRepository>();
+builder.Services.AddHttpClient<IGroqRepository, GroqRepository>();
+
+// Inyección del servicio principal del chatbot
+builder.Services.AddScoped<IChatBotService, ChatBotServiceRepository>();
 
 var app = builder.Build();
 
@@ -9,7 +25,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
