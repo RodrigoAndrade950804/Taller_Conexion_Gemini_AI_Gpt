@@ -2,7 +2,7 @@
 {
     public class GroqRequest
     {
-        public string model { get; set; } = "llama3-8b-8192";
+        public string model { get; set; } = "llama-3.3-70b-versatile";
         public List<Message> messages { get; set; }
     }
 
