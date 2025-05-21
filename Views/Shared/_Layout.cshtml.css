@@ -1,6 +1,6 @@
 ﻿﻿ /* Color personalizado UDLA para navbar y footer */
 .bg-udla {
-    background-color: #8B1E3F !important;
+    background-color: #8d002e !important;
 }
 
 .navbar-dark .navbar-brand,
@@ -10,7 +10,7 @@
 
     .navbar-dark .nav-link:hover,
     .navbar-dark .nav-link:focus {
-        color: #f8f9fa !important;
+        color: #8d002e !important;
     }
 
 /* Botón primario */
@@ -34,7 +34,7 @@
 
 /* Footer personalizado */
 .footer {
-    background-color: #8B1E3F;
+    background-color: #8d002e;
     color: white;
     padding: 15px 0;
     line-height: 1.5;

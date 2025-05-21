@@ -12,19 +12,36 @@ namespace Taller_Conexion_Gemini_Ai_Gpt.Repositories
             _groqRepository = groqRepository;
         }
         public async Task<string> GetChatBotResponse(string prompt, string provider)
+
         {
-            if (provider.ToLower() == "Gemini")
+
+            provider = provider.ToLower();
+
+            if (provider == "gemini")
+
             {
+
                 return await _geminiRepository.GetResponseAsync(prompt);
+
             }
-            else if (provider.ToLower() == "Groq")
+
+            else if (provider == "groq")
+
             {
+
                 return await _groqRepository.GetResponseAsync(prompt);
+
             }
+
             else
+
             {
-                throw new ArgumentException("Proveedor invalido. Debe especificar un proveedor entre 'gemini' o 'groq'.");
+
+                throw new ArgumentException("Proveedor no válido. Debe ser 'gemini' o 'groq'.");
+
             }
+
         }
+
     }
 }

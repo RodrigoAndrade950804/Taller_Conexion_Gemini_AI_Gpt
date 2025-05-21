@@ -36,34 +36,57 @@
 
         // Llama al backend usando AJAX
         $.ajax({
-            url: '/ChatBot/Index',
+
+            url: '/api/chat/enviar', // ✅ esta es la ruta correcta
+
             type: 'POST',
-            data: { provider: provider, prompt: prompt, guardadoPor: guardadoPor },
+
+            contentType: 'application/json',
+
+            data: JSON.stringify({
+
+                Proveedor: provider,
+
+                Prompt: prompt,
+
+                Usuario: guardadoPor
+
+            }),
+
             success: function (data) {
-                // Quita el bubble de cargando
+
                 $('#loading-bubble').remove();
 
-                // Extrae la respuesta del HTML devuelto
-                var responseHtml = $(data).find('.chat-bubble-bot').parent().html();
-                var providerName = $('#provider option:selected').text();
-
-                // Agrega la respuesta al chat
                 $('#chatHistory').append(
+
                     `<div class="d-flex justify-content-start mb-2">
-                        <div class="chat-bubble-bot" style="max-width: 75%;">
-                             ${responseHtml}
-                        </div>
-                     </div>`
+<div class="chat-bubble-bot" style="max-width: 75%;">
+<strong>${provider}:</strong><br />
+
+                    ${$('<div>').text(data.respuesta).html()}
+</div>
+</div>`
+
                 );
 
-                // Scroll al final
                 $('#chatHistory').scrollTop($('#chatHistory')[0].scrollHeight);
+
             },
+
             error: function () {
+
+                $('#loading-bubble').remove();
+
                 $('#chatHistory').append(
+
                     `<div class="alert alert-danger mt-2">Error al obtener respuesta del servidor.</div>`
+
                 );
+
             }
+
         });
+
+
     });
 });

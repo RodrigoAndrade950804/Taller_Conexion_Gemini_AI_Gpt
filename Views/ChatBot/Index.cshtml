@@ -1,62 +1,62 @@
 ﻿﻿﻿@{
-    ViewData["Title"] = "MulloPilamungaBurgaBOT";
+    ViewData["Title"] = "MaquisAntambaAndradeBOT";
     ViewData["BodyClass"] = "bg-chatbot";
     var response = ViewBag.Response as string;
     var provider = ViewBag.Provider as string;
 }
 
 
-<h1 class="text-center my-4 display-4">MulloPilamungaBurgaBOT</h1>
+<h1 class="text-white text-center my-4 display-4">MaquisAntambaAndradeBOT</h1>
 
 <div class="row mb-4">
-    <!-- Josue Mullo -->
+    <!-- Kevin Maquis -->
     <div class="col-md-4 mb-3">
         <div class="card h-100">
             <div class="row g-0">
                 <div class="col-5">
-                    <img src="~/imgs/josue.jpeg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Josue Mullo">
+                    <img src="~/imgs/KevinMaquis.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Kevin Maquis">
                 </div>
                 <div class="col-7">
                     <div class="card-body">
-                        <h5 class="card-title">Josue Mullo</h5>
-                        <p class="card-text">Correo: josue.mullo@udla.edu.ec</p>
-                        <p class="card-text">Intereses: Desarrollo backend, ciberseguridad, videojuegos</p>
+                        <h5 class="card-title">Kevin Maquis</h5>
+                        <p class="card-text">Correo: kevin.maquis@udla.edu.ec</p>
+                        <p class="card-text">Intereses: Me gusta jugar al futbol, soy muy bueno, bueno en realidad bueno en todo lo que hago. </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Martin Burga -->
+    <!-- Juan Antamba -->
     <div class="col-md-4 mb-3">
         <div class="card h-100">
             <div class="row g-0">
                 <div class="col-5">
-                    <img src="~/imgs/martin.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Martin Burga">
+                    <img src="~/imgs/JuanAntamba.png" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Juan Antamba">
                 </div>
                 <div class="col-7">
                     <div class="card-body">
-                        <h5 class="card-title">Martin Burga</h5>
-                        <p class="card-text">Correo: martin.burga@udla.edu.ec</p>
-                        <p class="card-text">Intereses: Inteligencia artificial, bases de datos, videojuegos</p>
+                        <h5 class="card-title">Juan Antamba</h5>
+                        <p class="card-text">Correo: juan.antamba@udla.edu.ec</p>
+                        <p class="card-text">Intereses: Desarrollo front end, videojuegos</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Santiago Pilamunga -->
+    <!-- Rodrigo Andrade -->
     <div class="col-md-4 mb-3">
         <div class="card h-100">
             <div class="row g-0">
                 <div class="col-5">
-                    <img src="~/imgs/santiago.jpeg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Santiago Pilamunga">
+                    <img src="~/imgs/RodrigoAndrade.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Rodrigo Andrade">
                 </div>
                 <div class="col-7">
                     <div class="card-body">
-                        <h5 class="card-title">Santiago Pilamunga</h5>
-                        <p class="card-text">Correo: santiago.pilamunga@udla.edu.ec</p>
-                        <p class="card-text">Intereses: Frontend, diseño de interfaces, música</p>
+                        <h5 class="card-title">Rodrigo Andrade</h5>
+                        <p class="card-text">Correo: rodrigo.andrade@udla.edu.ec</p>
+                        <p class="card-text">Intereses: Fullstack, diseño de interfaces, música, videojuegos</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,8 @@
                 <div class="d-flex justify-content-start mb-2">
                     <div class="chat-bubble-bot" style="max-width: 75%;">
                         <strong>@provider:</strong><br />
-                        @Html.Raw(response.Replace("\n", "<br />"))
+                        @Html.Raw(string.Join("<br />", response.Trim().Split('\n').Select(line => line.TrimEnd('\r')).Where(line => !string.IsNullOrWhiteSpace(line))))
+
                     </div>
                 </div>
 
